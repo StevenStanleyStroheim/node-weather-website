@@ -16,13 +16,11 @@ const forecast = (latitude, longitude, callback) => {
     } else {
       currentTemp = body.main.temp;
       feelsLikeTemp = body.main.feels_like;
+      tempMin = body.main.temp_min;
+      tempMax = body.main.temp_max;
       callback(
         undefined,
-        "It is currently " +
-          currentTemp +
-          " degrees out, but it feels like " +
-          feelsLikeTemp +
-          " degrees."
+        `The high for today is ${tempMax} with the low being ${tempMin}. It is currently ${currentTemp} degrees out, but it feels like ${feelsLikeTemp} degrees.`
       );
     }
   });
